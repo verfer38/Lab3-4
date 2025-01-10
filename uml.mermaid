@@ -1,16 +1,21 @@
 classDiagram
     class Location {
-        -String name
+        -String alias
         -String description
         -LocationType type
-        +Location(name: String, description: String, type: LocationType)
+        -double latitude
+        -double longitude
+        +Location(alias: String, description: String, type: LocationType, latitude: double, longitude: double)
     }
 
     class Person {
         -String name
         -Location location
-        -boolean isVisible
-        +Person(name: String, location: Location, isVisible: boolean)
+        -boolean isVisible 
+        -String gender;
+	    -double height;
+	    -double weight;
+        +Person(name: String, location: Location, isVisible: boolean, gender: String, height: double, weight: double)
         +changeAppearance(method: String, newAppearance: String)
         +interact(character: Character)
         +toString() String
@@ -40,8 +45,8 @@ classDiagram
         FOREST
     }
 
-    class AppearanceChangeException {
-        +AppearanceChangeException(message: String)
+    class AppearanceChangeFailedException {
+        +AppearanceChangeFailedException(message: String)
     }
 
     class CharacterNotFoundException {

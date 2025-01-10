@@ -1,18 +1,17 @@
 package model.characters;
 
 import model.*;
-import enums.CharacterState;
 
 public class Eliza extends Person {
-	public Eliza(String name, Location location, boolean isRoyal) {
-		super(name, location, isRoyal);
+	public Eliza(String name, Location location, boolean isRoyal, String gender, double height, double weight) {
+		super(name, location, isRoyal, gender, height, weight);
 	}
 
 	public void wander() {
-		System.out.println(name + " блуждание по " + location.getName());
+		System.out.println(name + " блуждание по " + location.getAlias());
 	}
 
 	public void stay() {
-		System.out.println(name + " стоит на " + location.getName());
+		System.out.println(name + " стоит на " + location.getAlias());
 	}
 }

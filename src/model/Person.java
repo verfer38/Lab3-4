@@ -10,11 +10,17 @@ public class Person extends Character {
 	protected boolean isRoyal;
 	protected String appearance;
 	protected List<Character> recognizedBy;
+	protected String gender;
+	protected double height;
+	protected double weight;
 
-	public Person(String name, Location location, boolean isRoyal) {
+	public Person(String name, Location location, boolean isRoyal, String gender, double height, double weight) {
 		super(name, location, false);
 		this.isRoyal = isRoyal;
 		this.appearance = "normal";
+		this.gender = gender;
+		this.height = height;
+		this.weight = weight;
 		this.recognizedBy = new ArrayList<>();
 	}
 

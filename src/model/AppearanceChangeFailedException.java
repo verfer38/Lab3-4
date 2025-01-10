@@ -1,7 +1,7 @@
 package model;
 
-public class AppearanceChangeException extends Exception {
-	public AppearanceChangeException(String message) {
+public class AppearanceChangeFailedException extends Exception {
+	public AppearanceChangeFailedException(String message) {
 		super(message);
 	}
 

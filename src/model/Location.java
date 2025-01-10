@@ -1,23 +1,27 @@
 package model;
 
 public class Location {
-    private String name;
+    private String alias;
     private String description;
     private LocationType type;
+    double latitude;
+    double longitude;
 
-    public Location(String name, String description, LocationType type) {
-        this.name = name;
+    public Location(String alias, String description, LocationType type, double latitude, double longitude) {
+        this.alias = alias;
         this.description = description;
         this.type = type;
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
 
-    public String getName() {
-        return name;
+    public String getAlias() {
+        return alias;
     }
 
     @Override
     public String toString() {
-        return name + " (" + description + ")";
+        return alias + " (" + description + ") " + "на широте " + latitude + " на долготе " + longitude;
     }
 
     @Override
@@ -25,13 +29,14 @@ public class Location {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Location location = (Location) o;
-        return name.equals(location.name) && 
+        return alias.equals(location.alias) &&
                type == location.type;
     }
 
+
     @Override
     public int hashCode() {
-        return 31 * name.hashCode() + type.hashCode();
+        return 31 * alias.hashCode() + type.hashCode();
     }
 
     public enum LocationType {
