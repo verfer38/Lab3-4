@@ -1,0 +1,63 @@
+classDiagram
+    class Location {
+        -String name
+        -String description
+        -LocationType type
+        +Location(name: String, description: String, type: LocationType)
+    }
+
+    class Person {
+        -String name
+        -Location location
+        -boolean isVisible
+        +Person(name: String, location: Location, isVisible: boolean)
+        +changeAppearance(method: String, newAppearance: String)
+        +interact(character: Character)
+        +toString() String
+        +getName() String
+    }
+
+    class Dog {
+        +Dog(name: String, location: Location, isVisible: boolean)
+        +interact(character: Character)
+    }
+
+    class Swallow {
+        +Swallow(name: String, location: Location, isVisible: boolean)
+        +interact(character: Character)
+    }
+
+    class CharacterState {
+        <<enumeration>>
+        NORMAL
+        DISGUISED
+        TRANSFORMED
+    }
+
+    class LocationType {
+        <<enumeration>>
+        PALACE
+        FOREST
+    }
+
+    class AppearanceChangeException {
+        +AppearanceChangeException(message: String)
+    }
+
+    class CharacterNotFoundException {
+        +CharacterNotFoundException(message: String)
+    }
+
+    class InvalidStateException {
+        +InvalidStateException(message: String)
+    }
+
+    Person --|> Character
+    Dog --|> Character
+    Swallow --|> Character
+    Character --o Location
+    Character --> CharacterState
+    Location --> LocationType
+    AppearanceChangeException --|> Exception
+    CharacterNotFoundException --|> Exception
+    InvalidStateException --|> Exception
